@@ -1,0 +1,45 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { name: 'Home', path: '/' },
+  { name: 'Work', path: '/projects' },
+  { name: 'Notes', path: '/notes' },
+  { name: 'Tools', path: '/tools' }
+];
+---
+
+<nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+  <div class="bg-[#1C1C1C]/80 backdrop-blur-lg px-2 py-1.5 rounded-full flex items-center gap-1">
+    {navItems.map(item => (
+      <a
+        href={item.path}
+        class:list={[
+          'px-4 py-1.5 rounded-full text-sm transition-colors',
+          currentPath === item.path 
+            ? 'bg-white/10 text-white' 
+            : 'text-white/60 hover:text-white'
+        ]}
+      >
+        {item.name}
+      </a>
+    ))}
+    <button 
+      id="theme-toggle"
+      class="ml-1 p-1.5 text-white/60 hover:text-white rounded-full transition-colors"
+      aria-label="Toggle theme"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</nav>
+
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  themeToggle?.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.theme = isDark ? 'dark' : 'light';
+  });
+</script>

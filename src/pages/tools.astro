@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tools = [
+  {
+    name: 'JavaScript',
+    description: 'My primary language for web development, used extensively for both frontend and backend development with Node.js. Essential for creating interactive and dynamic web applications.'
+  },
+  {
+    name: 'TypeScript',
+    description: 'A strongly typed programming language that builds on JavaScript, providing better tooling and maintainability for large-scale applications. My go-to choice for all new projects.'
+  },
+  {
+    name: 'Java',
+    description: 'A versatile, object-oriented programming language I use for building robust backend services and enterprise applications. Great for creating scalable and maintainable systems.'
+  },
+  {
+    name: 'Python',
+    description: 'My preferred language for data analysis, automation, and scripting. Particularly useful for quick prototypes and data science projects with its extensive library ecosystem.'
+  },
+  {
+    name: 'Tailwind CSS',
+    description: 'A utility-first CSS framework that has revolutionized my approach to styling. Perfect for creating custom, responsive designs quickly without leaving HTML.'
+  },
+  {
+    name: 'Jupyter',
+    description: 'An essential tool for data analysis and visualization. I use it for exploratory data analysis, creating interactive documentation, and sharing reproducible research.'
+  },
+  {
+    name: 'Redis',
+    description: 'An in-memory data structure store used as a database, cache, message broker, and queue. Critical for improving application performance and handling real-time features.'
+  }
+];
+---
+
+<Layout title="Tools">
+  <div class="min-h-screen p-6 max-w-4xl mx-auto pt-24">
+    <main class="space-y-12">
+      <section>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Tools</h1>
+        <p class="text-sm leading-relaxed mb-8">
+          My primary tech stack includes a variety of tools and languages that I've chosen based on their reliability, 
+          performance, and suitability for different types of projects. Here are the main technologies I work with regularly.
+        </p>
+
+        <div class="space-y-8">
+          {tools.map(tool => (
+            <div class="space-y-2">
+              <h2 class="text-xl font-semibold text-gray-900 dark:text-white">{tool.name}</h2>
+              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                {tool.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500">
+      <p class="mb-2">© 2024 John Doe. | All Rights Reserved.</p>
+      <p>
+        Source code is available at
+        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">github.com/johndoe/portfolio</a>
+      </p>
+    </footer>
+  </div>
+</Layout>

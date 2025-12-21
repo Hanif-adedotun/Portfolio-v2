@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import { Icon } from "astro-icon/components";
 import projects from "../data/projects.json";
 import posts from "../data/posts.json";
+import awards from "../data/awards.json";
 ---
 
 <Layout title="Portfolio">
@@ -12,10 +14,11 @@ import posts from "../data/posts.json";
     <main class="space-y-12">
       <section>
         <p class="text-sm leading-relaxed">
-          Hi! I'm Hanif, a software engineer. I just love
-        exploring new ideas technologies. Grit-driven software engineer with 2+ years of
-          experience building scalable systems in web, ML, and DevOps. Passionate about solving high-impact problems.  Fastest way
-          to reach me is via X, and then my email above;
+          Hi! I'm Hanif, a software engineer. I just love exploring new ideas
+          technologies. Grit-driven software engineer with 2+ years of
+          experience building scalable systems in web, ML, and DevOps.
+          Passionate about solving high-impact problems. Fastest way to reach me
+          is via X, and then my email above;
         </p>
       </section>
 
@@ -48,16 +51,34 @@ import posts from "../data/posts.json";
         <h2 class="text-xl text-gray-900 dark:text-white mb-4">
           Featured projects
         </h2>
-        <div class="space-y-4">
+        <div class="space-y-6">
           {
             projects.map((project) => (
               <div>
-                <h3 class="text-gray-900 dark:text-white font-medium mb-1">
-                  {project.name}
-                </h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">
-                  {project.description}
+                <div class="flex items-center justify-between gap-2 mb-1">
+                  <h3 class="text-gray-900 dark:text-white font-medium">
+                    {project.name[0]}
+                  </h3>
+                  <a
+                    href={project.name[1]}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                    aria-label={`Visit ${project.name[0]}`}
+                  >
+                    <Icon name="mdi:web" class="w-4 h-4" />
+                  </a>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  {project.summary}
                 </p>
+                <div class="flex flex-wrap gap-1.5">
+                  {project.tools.map((tool: string) => (
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400">
+                      {tool}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))
           }
@@ -68,6 +89,22 @@ import posts from "../data/posts.json";
         >
           View all projects →
         </a>
+      </section>
+
+      <section>
+        <h2 class="text-xl text-gray-900 dark:text-white mb-4">Awards</h2>
+        <div class="space-y-2">
+          {
+            awards.map((award) => (
+              <div class="flex gap-4 text-sm">
+                <span class="text-gray-500 shrink-0">{award.date}</span>
+                <span class="text-gray-700 dark:text-gray-300">
+                  {award.title}
+                </span>
+              </div>
+            ))
+          }
+        </div>
       </section>
     </main>
 

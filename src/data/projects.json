@@ -1,19 +1,27 @@
 [
   {
-    "name": "Robin",
-    "description": "An experimental new(-ish) way to build type-safe full-stack web applications with Go"
+    "img": "Devtranet",
+    "name": ["Devtranet", "https://devtranet.tech"],
+    "summary": "Devtranet is a global network for developers and technologists to connect, build, and discover opportunities. Backed by DigitalOcean, JetBrains, Sketch, Linode, among others",
+    "tools": ["Nextjs", "Typescript", "Vercel", "AWS", "MongoDB"]
   },
   {
-    "name": "Mirror",
-    "description": "Go library for runtime type generation (existing and non-existing/dynamic types)"
+    "img": "Interna",
+    "name": ["Interna", "https://getinterna.com"],
+    "summary": "Interna is a solution designed to provide internship opportunities to every student, equip them with professional tools and provide a community of students who have undergone internships and students who are looking for internships.",
+    "tools": ["Nextjs", "Vercel", "Firebase", "MongoDB", "Google Cloud Platform"]
   },
   {
-    "name": "Bore",
-    "description": "SQLite-backed clipboard for headless environments"
+    "img": "StartVest",
+    "name": ["StartVest", "https://startvest.io"],
+    "summary": "StartVest is an equity crowdfunding platform that allows people with creative ideas to register and get funded. We provide everyone the option to invest in startups, and we also give startups the platform to post job vacancies for job seekers.",
+    "tools": ["React", "Bootstrap 4", "Django", "Firebase", "REST"]
   },
   {
-    "name": "Chimney",
-    "description": "A fast and lightweight static file server (and more in the future)"
+    "img": "VM",
+    "name": ["Voltex Middleware", "https://github.com/Hanif-adedotun/Nodejs/tree/master/voltex_react-app"],
+    "summary": "This is a tool built to automatically create forms for frontend applications, it saves and energy for creating a backend for forms only. It is easy to hook to any frontend application easily",
+    "tools": ["MySql", "MongoDB", "Nodejs", "React", "Bootstrap", "REST"]
   }
 ]
 

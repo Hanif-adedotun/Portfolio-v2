@@ -1,41 +1,43 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
 
 const projects = [
   {
-    name: 'Robin',
-    description: 'An experimental new(-ish) way to build type-safe full-stack web applications with Go'
+    name: "Robin",
+    description:
+      "An experimental new(-ish) way to build type-safe full-stack web applications with Go",
   },
   {
-    name: 'Mirror',
-    description: 'Go library for runtime type generation (existing and non-existing/dynamic types)'
+    name: "Mirror",
+    description:
+      "Go library for runtime type generation (existing and non-existing/dynamic types)",
   },
   {
-    name: 'Bore',
-    description: 'SQLite-backed clipboard for headless environments'
+    name: "Bore",
+    description: "SQLite-backed clipboard for headless environments",
   },
   {
-    name: 'Chimney',
-    description: 'A fast and lightweight static file server (and more in the future)'
-  }
+    name: "Chimney",
+    description:
+      "A fast and lightweight static file server (and more in the future)",
+  },
 ];
 
 const posts = [
-  { date: '24/11/2024', title: 'update_001.robin' },
-  { date: '11/10/2024', title: 'Introducing robin' },
-  { date: '25/07/2024', title: 'Did you forget? Computers are fast.' },
-  { date: '07/06/2024', title: 'No newline at the end of file' },
-  { date: '23/12/2023', title: 'My Stack.' }
+  { date: "24/11/2024", title: "update_001.robin" },
+  { date: "11/10/2024", title: "Introducing robin" },
+  { date: "25/07/2024", title: "Did you forget? Computers are fast." },
+  { date: "07/06/2024", title: "No newline at the end of file" },
+  { date: "23/12/2023", title: "My Stack." },
 ];
 ---
 
 <Layout title="Portfolio">
   <div class="min-h-screen p-6 max-w-4xl mx-auto">
     <header class="flex justify-between items-center mb-8">
-      <div class="text-sm">
-        >_ Home Blog Notes Projects Tools
-      </div>
-      <button 
+      <Navbar />
+      <button
         id="theme-toggle"
         class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white transition-colors"
         aria-label="Toggle theme"
@@ -53,70 +55,107 @@ const posts = [
           class="w-24 h-24 rounded-lg"
         />
         <div>
-          <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">John Doe</h1>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">johndoe@example.dev</p>
+          <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+            John Doe
+          </h1>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+            johndoe@example.dev
+          </p>
           <div class="flex gap-2 text-sm">
-            <a href="#" class="hover:text-gray-900 dark:hover:text-white">GitHub</a>
-            <a href="#" class="hover:text-gray-900 dark:hover:text-white">Twitter</a>
-            <a href="#" class="hover:text-gray-900 dark:hover:text-white">RSS</a>
+            <a href="#" class="hover:text-gray-900 dark:hover:text-white"
+              >GitHub</a
+            >
+            <a href="#" class="hover:text-gray-900 dark:hover:text-white"
+              >Twitter</a
+            >
+            <a href="#" class="hover:text-gray-900 dark:hover:text-white">RSS</a
+            >
           </div>
         </div>
       </section>
 
       <section>
         <p class="text-sm leading-relaxed">
-          Hi! I'm John, a software developer and engineering enthusiast. I love crafting
-          elegant solutions and exploring new technologies. I specialize in building
-          performant, intuitive, and user-friendly applications.
+          Hi! I'm John, a software developer and engineering enthusiast. I love
+          crafting elegant solutions and exploring new technologies. I
+          specialize in building performant, intuitive, and user-friendly
+          applications.
         </p>
       </section>
 
       <section>
         <h2 class="text-xl text-gray-900 dark:text-white mb-4">Latest posts</h2>
         <div class="space-y-2">
-          {posts.map(post => (
-            <div class="flex gap-4 text-sm">
-              <span class="text-gray-500">{post.date}</span>
-              <a href="#" class="hover:text-gray-900 dark:hover:text-white underline">{post.title}</a>
-            </div>
-          ))}
+          {
+            posts.map((post) => (
+              <div class="flex gap-4 text-sm">
+                <span class="text-gray-500">{post.date}</span>
+                <a
+                  href="#"
+                  class="hover:text-gray-900 dark:hover:text-white underline"
+                >
+                  {post.title}
+                </a>
+              </div>
+            ))
+          }
         </div>
-        <a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white block mt-4 underline">
+        <a
+          href="#"
+          class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white block mt-4 underline"
+        >
           View all articles →
         </a>
       </section>
 
       <section>
-        <h2 class="text-xl text-gray-900 dark:text-white mb-4">Featured projects</h2>
+        <h2 class="text-xl text-gray-900 dark:text-white mb-4">
+          Featured projects
+        </h2>
         <div class="space-y-4">
-          {projects.map(project => (
-            <div>
-              <h3 class="text-gray-900 dark:text-white font-medium mb-1">{project.name}</h3>
-              <p class="text-sm text-gray-600 dark:text-gray-400">{project.description}</p>
-            </div>
-          ))}
+          {
+            projects.map((project) => (
+              <div>
+                <h3 class="text-gray-900 dark:text-white font-medium mb-1">
+                  {project.name}
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  {project.description}
+                </p>
+              </div>
+            ))
+          }
         </div>
-        <a href="#" class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white block mt-4 underline">
+        <a
+          href="#"
+          class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white block mt-4 underline"
+        >
           View all projects →
         </a>
       </section>
     </main>
 
-    <footer class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500">
+    <footer
+      class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500"
+    >
       <p class="mb-2">© 2024 John Doe. | All Rights Reserved.</p>
       <p>
         Source code is available at
-        <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">github.com/johndoe/portfolio</a>
+        <a
+          href="#"
+          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+          >github.com/johndoe/portfolio</a
+        >
       </p>
     </footer>
   </div>
 
   <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    
-    themeToggle?.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.theme = isDark ? 'dark' : 'light';
+    const themeToggle = document.getElementById("theme-toggle");
+
+    themeToggle?.addEventListener("click", () => {
+      const isDark = document.documentElement.classList.toggle("dark");
+      localStorage.theme = isDark ? "dark" : "light";
     });
   </script>
 </Layout>

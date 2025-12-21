@@ -50,23 +50,25 @@ const posts = [
     <main class="space-y-12">
       <section class="flex items-start gap-6">
         <img
-          src="/src/assets/astro.svg"
+          src="/src/assets/sq-logo.jpg"
           alt="Profile"
           class="w-24 h-24 rounded-lg"
         />
         <div>
           <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-            John Doe
+            Hanif Adedotun
           </h1>
           <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            johndoe@example.dev
+            hey@hanif.one
           </p>
           <div class="flex gap-2 text-sm">
-            <a href="#" class="hover:text-gray-900 dark:hover:text-white"
-              >GitHub</a
+            <a
+              href="https://github.com/hanif-adedotun"
+              class="hover:text-gray-900 dark:hover:text-white">GitHub</a
             >
-            <a href="#" class="hover:text-gray-900 dark:hover:text-white"
-              >Twitter</a
+            <a
+              href="https://x.com/@devhanif"
+              class="hover:text-gray-900 dark:hover:text-white">X</a
             >
             <a href="#" class="hover:text-gray-900 dark:hover:text-white">RSS</a
             >
@@ -150,7 +152,7 @@ const posts = [
     </footer>
   </div>
 
-  <script>
+  <script is:inline>
     const themeToggle = document.getElementById("theme-toggle");
 
     themeToggle?.addEventListener("click", () => {

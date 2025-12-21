@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import certificates from "../data/certificates.json";
+---
+
+<Layout title="Certifications - Hanif Adedotun">
+  <div class="min-h-screen p-6 max-w-4xl mx-auto">
+    <Header />
+
+    <main class="space-y-12">
+      <section>
+        <h2 class="text-xl text-gray-900 dark:text-white mb-2">
+          Certifications
+        </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-8">
+          A collection of certifications and achievements I've earned over the
+          years.
+        </p>
+
+        <div class="space-y-3">
+          {
+            certificates.map((cert) => (
+              <div class="flex gap-4 text-sm">
+                <span class="text-gray-500 shrink-0">{cert.year}</span>
+                <div>
+                  <a
+                    href={cert.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-gray-900 dark:hover:text-white underline"
+                  >
+                    {cert.name}
+                  </a>
+                  <p class="text-gray-500 dark:text-gray-500 text-xs mt-0.5">
+                    {cert.org}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500 text-center"
+    >
+      <p class="mb-2">
+        © {new Date().getFullYear()} Hanif Adedotun. | All Rights Reserved.
+      </p>
+      <p>
+        Source code is available at
+        <a
+          href="https://github.com/Hanif-adedotun/Portfolio-v2"
+          class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+          >github.com/hanif-adedotun/Portfolio-v2</a
+        >
+      </p>
+    </footer>
+  </div>
+</Layout>

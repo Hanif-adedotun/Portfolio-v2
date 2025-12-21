@@ -1,87 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-
-const projects = [
-  {
-    name: "Robin",
-    description:
-      "An experimental new(-ish) way to build type-safe full-stack web applications with Go",
-  },
-  {
-    name: "Mirror",
-    description:
-      "Go library for runtime type generation (existing and non-existing/dynamic types)",
-  },
-  {
-    name: "Bore",
-    description: "SQLite-backed clipboard for headless environments",
-  },
-  {
-    name: "Chimney",
-    description:
-      "A fast and lightweight static file server (and more in the future)",
-  },
-];
-
-const posts = [
-  { date: "24/11/2024", title: "update_001.robin" },
-  { date: "11/10/2024", title: "Introducing robin" },
-  { date: "25/07/2024", title: "Did you forget? Computers are fast." },
-  { date: "07/06/2024", title: "No newline at the end of file" },
-  { date: "23/12/2023", title: "My Stack." },
-];
+import Header from "../components/Header.astro";
+import projects from "../data/projects.json";
+import posts from "../data/posts.json";
 ---
 
 <Layout title="Portfolio">
   <div class="min-h-screen p-6 max-w-4xl mx-auto">
-    <header class="flex justify-between items-center mb-8">
-      <Navbar />
-      <button
-        id="theme-toggle"
-        class="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white transition-colors"
-        aria-label="Toggle theme"
-      >
-        <span class="dark:hidden">🌙</span>
-        <span class="hidden dark:inline">☀️</span>
-      </button>
-    </header>
+    <Header />
 
     <main class="space-y-12">
-      <section class="flex items-start gap-6">
-        <img
-          src="/src/assets/sq-logo.jpg"
-          alt="Profile"
-          class="w-24 h-24 rounded-lg"
-        />
-        <div>
-          <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-1">
-            Hanif Adedotun
-          </h1>
-          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            hey@hanif.one
-          </p>
-          <div class="flex gap-2 text-sm">
-            <a
-              href="https://github.com/hanif-adedotun"
-              class="hover:text-gray-900 dark:hover:text-white">GitHub</a
-            >
-            <a
-              href="https://x.com/@devhanif"
-              class="hover:text-gray-900 dark:hover:text-white">X</a
-            >
-            <a href="#" class="hover:text-gray-900 dark:hover:text-white">RSS</a
-            >
-          </div>
-        </div>
-      </section>
-
       <section>
         <p class="text-sm leading-relaxed">
-          Hi! I'm John, a software developer and engineering enthusiast. I love
-          crafting elegant solutions and exploring new technologies. I
-          specialize in building performant, intuitive, and user-friendly
-          applications.
+          Hi! I'm Hanif, a software engineer. I just love
+        exploring new ideas technologies. Grit-driven software engineer with 2+ years of
+          experience building scalable systems in web, ML, and DevOps. Passionate about solving high-impact problems.  Fastest way
+          to reach me is via X, and then my email above;
         </p>
       </section>
 
@@ -138,26 +72,19 @@ const posts = [
     </main>
 
     <footer
-      class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500"
+      class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500 text-center"
     >
-      <p class="mb-2">© 2024 John Doe. | All Rights Reserved.</p>
+      <p class="mb-2">
+        © {new Date().getFullYear()} Hanif Adedotun. | All Rights Reserved.
+      </p>
       <p>
         Source code is available at
         <a
-          href="#"
+          href="https://github.com/Hanif-adedotun/Portfolio-v2"
           class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-          >github.com/johndoe/portfolio</a
+          >github.com/hanif-adedotun/Portfolio-v2</a
         >
       </p>
     </footer>
   </div>
-
-  <script is:inline>
-    const themeToggle = document.getElementById("theme-toggle");
-
-    themeToggle?.addEventListener("click", () => {
-      const isDark = document.documentElement.classList.toggle("dark");
-      localStorage.theme = isDark ? "dark" : "light";
-    });
-  </script>
 </Layout>

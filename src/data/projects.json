@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Robin",
+    "description": "An experimental new(-ish) way to build type-safe full-stack web applications with Go"
+  },
+  {
+    "name": "Mirror",
+    "description": "Go library for runtime type generation (existing and non-existing/dynamic types)"
+  },
+  {
+    "name": "Bore",
+    "description": "SQLite-backed clipboard for headless environments"
+  },
+  {
+    "name": "Chimney",
+    "description": "A fast and lightweight static file server (and more in the future)"
+  }
+]
+

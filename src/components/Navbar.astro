@@ -2,7 +2,7 @@
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Blog", path: "https://blog.hanif.one" },
-  { name: "Notes", path: "/notes" },
+  { name: "Certifications", path: "/certifications" },
   { name: "Projects", path: "/projects" },
   { name: "Tools", path: "/tools" },
 ];
@@ -14,7 +14,7 @@ const navItems = [
     navItems.map((item, index) => (
       <a
         href={item.path}
-        class="hover:text-gray-900 dark:hover:text-white transition-colors"
+        class="hover:text-gray-900 dark:hover:text-white transition-colors ml-2"
       >
         {item.name}
       </a>

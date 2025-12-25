@@ -1,0 +1,313 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import blogPosts from "../../data/blog-posts.json";
+
+export async function getStaticPaths() {
+  return blogPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={post.title}>
+  <div class="min-h-screen">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-8"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-4 h-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+          />
+        </svg>
+        Back to articles
+      </a>
+
+      <div class="flex gap-12 mt-4">
+        <!-- Main Article Content -->
+        <article class="flex-1 max-w-3xl">
+          <header class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
+              {post.title}
+            </h1>
+            <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+              <span>{post.author}</span>
+              <span>•</span>
+              <time datetime={post.date}>
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+            </div>
+          </header>
+
+          <div class="prose prose-lg dark:prose-invert max-w-none">
+            <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-12">
+              {post.intro}
+            </p>
+
+            {post.sections.map((section) => (
+              <section
+                id={section.id}
+                class="mb-16 scroll-mt-24"
+              >
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                  {section.title}
+                </h2>
+                <div class="space-y-4">
+                  {section.content.map((paragraph) => (
+                    <p class="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </article>
+
+        <!-- Table of Contents -->
+        <aside class="hidden lg:block w-64 shrink-0">
+          <div class="sticky top-24">
+            <nav class="toc" scroll-target-group="auto">
+              <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
+                Contents
+              </h3>
+              <ul class="space-y-2 relative">
+                <div
+                  id="toc-indicator"
+                  class="absolute left-0 w-0.5 bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out opacity-0"
+                ></div>
+                {post.sections.map((section, index) => (
+                  <li>
+                    <a
+                      href={`#${section.id}`}
+                      class="toc-link block text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-200 py-1.5 relative pl-4"
+                      data-section-id={section.id}
+                      data-index={index}
+                    >
+                      {section.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Table of Contents Styling */
+  .toc {
+    position: relative;
+  }
+
+  .toc-link {
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .toc-link:hover {
+    transform: translateX(4px);
+  }
+
+  .toc-link.active {
+    font-weight: 600;
+    color: rgb(17 24 39);
+    padding-left: 12px;
+  }
+
+  .dark .toc-link.active {
+    color: rgb(255 255 255);
+  }
+
+  /* Smooth scroll offset */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  #toc-indicator {
+    will-change: transform, height, opacity;
+  }
+</style>
+
+<script>
+  // Enhanced scroll tracking for TOC with smooth indicator animation
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section[id]");
+    const tocLinks = document.querySelectorAll(".toc-link");
+    const indicator = document.getElementById("toc-indicator");
+    const tocList = document.querySelector(".toc ul");
+
+    if (!indicator || !tocList) return;
+
+    // Calculate link positions
+    const linkPositions = Array.from(tocLinks).map((link) => {
+      const rect = link.getBoundingClientRect();
+      const parentRect = tocList.getBoundingClientRect();
+      return {
+        element: link,
+        top: rect.top - parentRect.top,
+        height: rect.height,
+        id: link.getAttribute("data-section-id"),
+      };
+    });
+
+    const updateIndicator = (activeLink) => {
+      if (!activeLink) {
+        indicator.style.opacity = "0";
+        return;
+      }
+
+      const position = linkPositions.find(
+        (pos) => pos.element === activeLink
+      );
+
+      if (position) {
+        indicator.style.opacity = "1";
+        indicator.style.transform = `translateY(${position.top}px)`;
+        indicator.style.height = `${position.height}px`;
+      }
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -60% 0px",
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      // Find the section that's most visible
+      let mostVisible = null;
+      let maxVisibility = 0;
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const visibility = entry.intersectionRatio;
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility;
+            mostVisible = entry.target;
+          }
+        }
+      });
+
+      // If we have a visible section, update active state
+      if (mostVisible) {
+        const id = mostVisible.getAttribute("id");
+        let activeLink = null;
+
+        tocLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("data-section-id") === id) {
+            link.classList.add("active");
+            activeLink = link;
+          }
+        });
+
+        updateIndicator(activeLink);
+
+        // Update URL without scrolling
+        if (history.replaceState) {
+          history.replaceState(null, "", `#${id}`);
+        }
+      }
+    }, observerOptions);
+
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Handle initial hash
+    if (window.location.hash) {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth" });
+          const id = target.getAttribute("id");
+          tocLinks.forEach((link) => {
+            if (link.getAttribute("data-section-id") === id) {
+              link.classList.add("active");
+              updateIndicator(link);
+            }
+          });
+        }, 100);
+      }
+    } else {
+      // Set first link as active initially
+      if (tocLinks.length > 0) {
+        tocLinks[0].classList.add("active");
+        updateIndicator(tocLinks[0]);
+      }
+    }
+
+    // Handle click events for smooth scrolling
+    tocLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute("data-section-id");
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          
+          // Update active state immediately for better UX
+          tocLinks.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+          updateIndicator(link);
+
+          // Update URL
+          if (history.pushState) {
+            history.pushState(null, "", `#${targetId}`);
+          }
+        }
+      });
+    });
+
+    // Recalculate positions on resize
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const activeLink = document.querySelector(".toc-link.active");
+        if (activeLink) {
+          const newPositions = Array.from(tocLinks).map((link) => {
+            const rect = link.getBoundingClientRect();
+            const parentRect = tocList.getBoundingClientRect();
+            return {
+              element: link,
+              top: rect.top - parentRect.top,
+              height: rect.height,
+              id: link.getAttribute("data-section-id"),
+            };
+          });
+          linkPositions.splice(0, linkPositions.length, ...newPositions);
+          updateIndicator(activeLink);
+        }
+      }, 150);
+    });
+  });
+</script>
+

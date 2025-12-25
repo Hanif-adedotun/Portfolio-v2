@@ -1,0 +1,102 @@
+[
+  {
+    "slug": "where-product-design-meets-systems-thinking",
+    "title": "Where Product Design Meets Systems Thinking",
+    "date": "2024-12-15",
+    "author": "Hanif Adedotun",
+    "intro": "Design engineering bridges design and engineering in web development, focusing on creating visually appealing, performant, and user-centered products. This article explores how combining systematic thinking, reusable components, and UX attention delivers cohesive, polished, and responsive experiences. We'll dive into principles, workflows, and tools for creating high-quality products at scale with seamless collaboration.",
+    "sections": [
+      {
+        "id": "interpretation",
+        "title": "Interpretation",
+        "content": [
+          "Design engineering represents the intersection of design and engineering disciplines, where teams create functional, delightful, and maintainable digital products.",
+          "It's about moving beyond traditional handoffs to building a shared understanding of design intent and technical constraints.",
+          "Systems thinking ensures components integrate harmoniously for consistency and scalability."
+        ]
+      },
+      {
+        "id": "difference",
+        "title": "Difference",
+        "content": [
+          "Unlike traditional workflows where designers create mockups and engineers implement them separately, design engineering creates a unified approach.",
+          "Design engineers understand both the visual language and the technical implementation, enabling them to make informed decisions that balance aesthetics with performance.",
+          "This approach reduces friction between teams and results in products that are both beautiful and functional."
+        ]
+      },
+      {
+        "id": "importance",
+        "title": "Importance",
+        "content": [
+          "In today's fast-paced development environment, the ability to iterate quickly while maintaining quality is crucial.",
+          "Design engineering enables teams to build design systems that scale, reducing technical debt and improving consistency across products.",
+          "By thinking systematically, we can create components that work together seamlessly, making future development faster and more predictable."
+        ]
+      },
+      {
+        "id": "quality",
+        "title": "Quality",
+        "content": [
+          "Quality in design engineering means more than just pixel-perfect implementations.",
+          "It encompasses accessibility, performance, maintainability, and user experience.",
+          "Every component should be built with these principles in mind, ensuring that the final product meets both user needs and technical requirements."
+        ]
+      },
+      {
+        "id": "performance",
+        "title": "Performance",
+        "content": [
+          "Performance is a critical aspect of design engineering.",
+          "Beautiful designs mean nothing if they don't load quickly or respond smoothly to user interactions.",
+          "Design engineers must consider bundle size, rendering performance, and runtime efficiency when building components."
+        ]
+      },
+      {
+        "id": "accessibility",
+        "title": "Accessibility",
+        "content": [
+          "Accessibility should be built into every component from the start, not added as an afterthought.",
+          "This means proper semantic HTML, ARIA attributes, keyboard navigation, and screen reader support.",
+          "Inclusive design benefits everyone and is a fundamental responsibility of design engineers."
+        ]
+      },
+      {
+        "id": "iteration",
+        "title": "Iteration",
+        "content": [
+          "Design engineering embraces iterative development, allowing teams to refine and improve components over time.",
+          "By building reusable components, we can make improvements in one place that benefit the entire system.",
+          "This approach enables continuous improvement while maintaining consistency across the product."
+        ]
+      },
+      {
+        "id": "components",
+        "title": "Components",
+        "content": [
+          "Components are the building blocks of design engineering.",
+          "Well-designed components are reusable, composable, and maintainable.",
+          "They encapsulate both visual design and behavior, making it easy to build complex interfaces from simple, tested pieces."
+        ]
+      },
+      {
+        "id": "motion",
+        "title": "Motion",
+        "content": [
+          "Motion and animation can enhance user experience when used thoughtfully.",
+          "Design engineers must balance visual delight with performance and accessibility.",
+          "Animations should serve a purpose, whether it's providing feedback, guiding attention, or creating a sense of continuity."
+        ]
+      },
+      {
+        "id": "collaboration",
+        "title": "Collaboration",
+        "content": [
+          "Effective design engineering requires close collaboration between designers, engineers, and product managers.",
+          "Shared tools, clear communication, and mutual respect for each discipline's expertise are essential.",
+          "When teams work together from the beginning, the result is better products delivered faster."
+        ]
+      }
+    ]
+  }
+]
+

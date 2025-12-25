@@ -1,21 +1,27 @@
 [
   {
+    "img": "Hiro",
+    "name": ["Interna", "https://hiro.hanif.one"],
+    "summary": "Hiro is an AI tool designed to automatically generate unit test cases and requirement documentation for your codebase, regardless of the programming language or framework you're using.",
+    "tools": ["Python", "LangChain", "Streamlit"]
+  },
+  {
     "img": "Devtranet",
     "name": ["Devtranet", "https://devtranet.tech"],
     "summary": "Devtranet is a global network for developers and technologists to connect, build, and discover opportunities. Backed by DigitalOcean, JetBrains, Sketch, Linode, among others",
-    "tools": ["Nextjs", "Typescript", "Vercel", "AWS", "MongoDB"]
+    "tools": ["Nextjs", "Typescript", "AWS"]
   },
   {
     "img": "Interna",
     "name": ["Interna", "https://getinterna.com"],
     "summary": "Interna is a solution designed to provide internship opportunities to every student, equip them with professional tools and provide a community of students who have undergone internships and students who are looking for internships.",
-    "tools": ["Nextjs", "Vercel", "Firebase", "MongoDB", "Google Cloud Platform"]
+    "tools": ["Nextjs", "Vercel", "GCP"]
   },
   {
     "img": "StartVest",
     "name": ["StartVest", "https://startvest.io"],
     "summary": "StartVest is an equity crowdfunding platform that allows people with creative ideas to register and get funded. We provide everyone the option to invest in startups, and we also give startups the platform to post job vacancies for job seekers.",
-    "tools": ["React", "Bootstrap 4", "Django", "Firebase", "REST"]
+    "tools": ["Bootstrap", "Django", "Firebase"]
   },
   {
     "img": "VM",

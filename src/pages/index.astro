@@ -5,6 +5,8 @@ import { Icon } from "astro-icon/components";
 import projects from "../data/projects.json";
 import posts from "../data/posts.json";
 import awards from "../data/awards.json";
+import about from "../data/about.json";
+import blogPosts from "../data/blog-posts.json";
 ---
 
 <Layout title="Portfolio">
@@ -14,11 +16,7 @@ import awards from "../data/awards.json";
     <main class="space-y-12">
       <section>
         <p class="text-sm leading-relaxed">
-          Hi! I'm Hanif, a software engineer. I just love exploring new ideas
-          technologies. Grit-driven software engineer with 2+ years of
-          experience building scalable systems in web, ML, and DevOps.
-          Passionate about solving high-impact problems. Fastest way to reach me
-          is via X, and then my email above;
+          {about.text.join(" ")}
         </p>
       </section>
 
@@ -26,11 +24,17 @@ import awards from "../data/awards.json";
         <h2 class="text-xl text-gray-900 dark:text-white mb-4">Latest posts</h2>
         <div class="space-y-2">
           {
-            posts.map((post) => (
+            blogPosts.slice(0, 5).map((post) => (
               <div class="flex gap-4 text-sm">
-                <span class="text-gray-500">{post.date}</span>
+                <span class="text-gray-500">
+                  {new Date(post.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
                 <a
-                  href="#"
+                  href={`/blog/${post.slug}`}
                   class="hover:text-gray-900 dark:hover:text-white underline"
                 >
                   {post.title}
@@ -40,7 +44,7 @@ import awards from "../data/awards.json";
           }
         </div>
         <a
-          href="#"
+          href="/blog"
           class="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white block mt-4 underline"
         >
           View all articles →

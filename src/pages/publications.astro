@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import { Icon } from "astro-icon/components";
+import publications from "../data/publications.json";
+---
+
+<Layout title="Publications">
+  <div class="min-h-screen p-6 max-w-4xl mx-auto">
+    <Header />
+
+    <main class="space-y-12 mt-8">
+      <section>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          Publications
+        </h1>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mb-6">
+          Research contributions and academic publications.
+        </p>
+        <a
+          href="https://scholar.google.com/citations?user=YOUR_USER_ID"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-sm text-contrast hover:opacity-80 transition-opacity mb-8"
+        >
+          <Icon name="mdi:google" class="w-5 h-5" />
+          View Google Scholar Profile
+        </a>
+      </section>
+
+      <section>
+        <h2 class="text-xl text-gray-900 dark:text-white mb-6">
+          Publications
+        </h2>
+        <div class="space-y-8">
+          {publications.map((publication) => (
+            <article class="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-0">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                {publication.link ? (
+                  <a
+                    href={publication.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-contrast transition-colors"
+                  >
+                    {publication.title}
+                  </a>
+                ) : (
+                  publication.title
+                )}
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                {publication.authors.join(", ")}
+              </p>
+              <p class="text-sm text-gray-500 dark:text-gray-500 mb-2">
+                {publication.venue} • {publication.year}
+              </p>
+              {publication.description && (
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
+                  {publication.description}
+                </p>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500 text-center"
+    >
+      <p class="mb-2">
+        © {new Date().getFullYear()} Hanif Adedotun. | All Rights Reserved.
+      </p>
+      <p>
+        Source code is available at
+        <a
+          href="https://github.com/Hanif-adedotun/Portfolio-v2"
+          class="text-gray-600 dark:text-gray-400 hover:text-contrast transition-colors"
+          >github.com/hanif-adedotun/Portfolio-v2</a
+        >
+      </p>
+    </footer>
+  </div>
+</Layout>
+

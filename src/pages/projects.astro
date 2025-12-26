@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import { Icon } from "astro-icon/components";
+import projects from "../data/projects.json";
+---
+
+<Layout title="Projects">
+  <div class="min-h-screen p-6 max-w-4xl mx-auto">
+    <Header />
+
+    <main class="space-y-12 mt-8">
+      <section>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          Projects
+        </h1>
+        <div class="space-y-8">
+          {projects.map((project) => (
+            <article class="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-0">
+              <div class="flex items-start justify-between gap-4 mb-3">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+                  {project.name[0]}
+                </h2>
+                <a
+                  href={project.name[1]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-gray-500 dark:text-gray-400 hover:text-contrast transition-colors shrink-0"
+                  aria-label={`Visit ${project.name[0]}`}
+                >
+                  <Icon name="mdi:web" class="w-5 h-5" />
+                </a>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                {project.summary}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {project.tools.map((tool: string) => (
+                  <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500 text-center"
+    >
+      <p class="mb-2">
+        © {new Date().getFullYear()} Hanif Adedotun. | All Rights Reserved.
+      </p>
+      <p>
+        Source code is available at
+        <a
+          href="https://github.com/Hanif-adedotun/Portfolio-v2"
+          class="text-gray-600 dark:text-gray-400 hover:text-contrast transition-colors"
+          >github.com/hanif-adedotun/Portfolio-v2</a
+        >
+      </p>
+    </footer>
+  </div>
+</Layout>
+

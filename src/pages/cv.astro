@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="CV">
+  <div class="min-h-screen p-6 max-w-4xl mx-auto">
+    <Header />
+
+    <main class="space-y-12 mt-8">
+      <section>
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+          Curriculum Vitae
+        </h1>
+        <div class="space-y-6">
+          <div>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white hover:text-contrast transition-colors underline"
+            >
+              Academic CV
+              <Icon name="mdi:download" class="w-4 h-4" />
+            </a>
+          </div>
+          <div>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm text-gray-900 dark:text-white hover:text-contrast transition-colors underline"
+            >
+              Resume
+              <Icon name="mdi:download" class="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500 text-center"
+    >
+      <p class="mb-2">
+        © {new Date().getFullYear()} Hanif Adedotun. | All Rights Reserved.
+      </p>
+      <p>
+        Source code is available at
+        <a
+          href="https://github.com/Hanif-adedotun/Portfolio-v2"
+          class="text-gray-600 dark:text-gray-400 hover:text-contrast transition-colors"
+          >github.com/hanif-adedotun/Portfolio-v2</a
+        >
+      </p>
+    </footer>
+  </div>
+</Layout>
+

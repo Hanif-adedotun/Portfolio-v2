@@ -1,0 +1,11 @@
+[
+  {
+    "title": "Sample Publication Title",
+    "authors": ["Hanif Adedotun", "Co-author Name"],
+    "venue": "Conference/Journal Name",
+    "year": "2024",
+    "link": "https://example.com/publication",
+    "description": "Brief description of the publication and its contributions."
+  }
+]
+

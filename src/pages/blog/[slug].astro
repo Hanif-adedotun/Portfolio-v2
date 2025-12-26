@@ -36,7 +36,7 @@ const { post } = Astro.props;
         Back to articles
       </a>
 
-      <div class="flex gap-12 mt-4">
+      <div class="flex gap-10 mt-4 justify-between">
         <!-- Main Article Content -->
         <article class="flex-1 max-w-3xl">
           <header class="mb-12">
@@ -91,7 +91,7 @@ const { post } = Astro.props;
               <ul class="space-y-2 relative">
                 <div
                   id="toc-indicator"
-                  class="absolute left-0 w-0.5 bg-gray-900 dark:bg-white rounded-full transition-all duration-300 ease-out opacity-0"
+                  class="absolute left-0 w-0.5 bg-contrast rounded-full transition-all duration-300 ease-out opacity-0"
                 ></div>
                 {post.sections.map((section, index) => (
                   <li>
@@ -136,12 +136,8 @@ const { post } = Astro.props;
 
   .toc-link.active {
     font-weight: 600;
-    color: rgb(17 24 39);
+    color: #1DCFF6;
     padding-left: 12px;
-  }
-
-  .dark .toc-link.active {
-    color: rgb(255 255 255);
   }
 
   /* Smooth scroll offset */

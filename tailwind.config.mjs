@@ -7,6 +7,9 @@ export default {
       fontFamily: {
         mono: ['JetBrains Mono', 'monospace'],
       },
+      colors: {
+        contrast: '#1DCFF6',
+      },
     },
   },
   plugins: [],

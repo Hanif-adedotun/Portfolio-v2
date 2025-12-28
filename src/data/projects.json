@@ -1,7 +1,7 @@
 [
   {
     "img": "Hiro",
-    "name": ["Interna", "https://hiro.hanif.one"],
+    "name": ["Hiro", "https://hiro.hanif.one"],
     "summary": "Hiro is an AI tool designed to automatically generate unit test cases and requirement documentation for your codebase, regardless of the programming language or framework you're using.",
     "tools": ["Python", "LangChain", "Streamlit"]
   },
